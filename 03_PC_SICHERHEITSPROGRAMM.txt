@@ -1,0 +1,71 @@
+CHOCO SHIELD PC GUARD# SIDE PROJEKT
+Konzept fuer ein defensives PC-Sicherheitsprogramm
+
+1. AUFGABE
+Der PC Guard soll den Rechner durch mehrere Schutzschichten absichern. Er ist
+als lokaler Sicherheitsagent gedacht und soll vorhandene Betriebssystem-
+Sicherheitsfunktionen ergaenzen, nicht unkontrolliert ersetzen.
+
+2. MODULE
+A. SYSTEMSTATUS
+   - Prueft, ob Betriebssystem und Sicherheitsupdates aktuell sind.
+   - Prueft den Status der integrierten Firewall und des Virenschutzes,
+     soweit das Betriebssystem eine sichere Schnittstelle bereitstellt.
+   - Warnt bei deaktivierten Schutzfunktionen.
+
+B. VERHALTENS- UND EREIGNISMONITOR
+   - Beobachtet sicherheitsrelevante Ereignisse ueber dokumentierte APIs.
+   - Erkennt auffaellige Anmeldeversuche, unerwartete Autostarts und
+     ungewoehnliche Prozessaktivitaet anhand nachvollziehbarer Regeln.
+   - Meldet Verdachtsfaelle; einzelne Auffaelligkeiten sind kein Beweis fuer
+     einen Angriff.
+
+C. NETZWERK-SCHUTZ
+   - Empfiehlt eine restriktive Firewall-Konfiguration.
+   - Erkennt ungewoehnliche Verbindungsversuche und auffaellige Verbindungsraten.
+   - Keine heimliche Ueberwachung fremder Netzwerke oder fremder Geraete.
+
+D. DATEI- UND RANSOMWARE-SCHUTZ
+   - Ueberwacht ausgewaehlte wichtige Ordner auf auffaellige Massen-Aenderungen.
+   - Erstellt Warnungen und kann bei klar definierten Regeln Schreibvorgaenge
+     nicht eigenmaechtig systemweit blockieren, sofern keine gepruefte
+     Betriebssystem-Schnittstelle dafuer verwendet wird.
+   - Regelmaessige Offline-/immutable Backups bleiben erforderlich.
+
+E. REAKTION
+   - Verdachtsereignis anzeigen und mit Zeit, Quelle und Grund dokumentieren.
+   - Sichere Sofortmassnahmen empfehlen: Netzwerk trennen, Scan starten,
+     Zugangsdaten von einem sauberen Geraet aendern, IT-Fachleute einschalten.
+   - Automatische Quarantaene nur fuer eindeutig identifizierte Dateien und
+     ueber gepruefte Sicherheitsfunktionen.
+
+F. UPDATE UND SELBSTSCHUTZ
+   - Signierte Updates und signierte Programmdateien.
+   - Minimale Berechtigungen.
+   - Manipulationsgeschuetzte Konfiguration und begrenzte Logs.
+   - Keine dauerhaften Administratorrechte fuer die normale Benutzeroberflaeche.
+
+3. BENUTZEROBERFLAECHE
+Statusanzeige:
+- Geschuetzt: wesentliche Schutzfunktionen aktiv.
+- Warnung: Konfiguration oder Ereignis benoetigt Aufmerksamkeit.
+- Kritisch: Schutzfunktion deaktiviert oder konkreter Vorfall wird untersucht.
+
+Jede Warnung muss erklaeren:
+Was wurde erkannt? Warum ist es auffaellig? Was kann der Benutzer tun?
+Falschmeldungen muessen gemeldet und nachvollziehbar behandelt werden koennen.
+
+4. SICHERHEITSBASIS
+- Automatische Sicherheitsupdates aktivieren.
+- Firewall eingeschaltet lassen.
+- Integrierten Virenschutz aktiv und aktuell halten.
+- MFA fuer wichtige Konten verwenden.
+- Keine unbekannten Programme oder E-Mail-Anhaenge ausfuehren.
+- Standardkonto statt dauerhaftem Administratorkonto verwenden.
+- Festplattenverschluesselung aktivieren.
+- Backups regelmaessig testen und mindestens eine Kopie offline halten.
+
+5. GRENZEN
+Ein eigener Agent ersetzt keine professionelle Endpoint-Detection-and-Response-
+Loesung. Er kann unbekannte Malware uebersehen und legitime Aktivitaet falsch
+bewerten. Er darf nicht versprechen, jeden Hackerangriff zu verhindern.

@@ -1,0 +1,39 @@
+CHOCO SHIELD SECURE TRANSPORT PROFILE (NSTP)
+Entwurf einer Richtlinie, kein neues kryptografisches Drahtprotokoll
+
+1. EINORDNUNG
+NSTP ist eine Konfigurations- und Betriebsrichtlinie fuer sichere Transporte.
+Es ersetzt TLS 1.3 oder QUIC nicht und definiert keine eigenen kryptografischen
+Primitive. Das tatsaechliche Paket-/Record-Format wird vom verwendeten Standard
+bestimmt.
+
+2. VERBINDLICHE REGELN
+- TLS 1.3 oder ein geeigneter aktueller QUIC-Stack.
+- AEAD ausschliesslich ueber die Standardimplementierung.
+- Zertifikatsketten, Hostnamen und Gueltigkeitszeiten korrekt validieren.
+- Sichere Schluesselableitung gemaess Standard.
+- Keine fest eingebauten Geheimnisse oder privaten Schluessel im Programmcode.
+- Keine Wiederverwendung von Nonces entgegen den Anforderungen des Algorithmus.
+- Fehlerhafte Authentisierung: Daten verwerfen und Ereignis protokollieren.
+- Keine stillschweigende Rueckstufung auf unsichere Protokolle.
+
+3. OPTIONALE IDENTITAETSPRUEFUNG
+Bei verwalteten Geraeten kann gegenseitiges TLS eingesetzt werden.
+Client-Zertifikate muessen sicher ausgestellt, erneuert, widerrufen und gespeichert
+werden. Ein Zertifikat allein ersetzt keine Autorisierungspruefung.
+
+4. REPLAY UND DUPLIKATE
+Replay-Schutz muss durch die Sequenz- und Zustandsmechanismen des Transportstandards
+sowie gegebenenfalls durch anwendungsspezifische Nonces, Zeitfenster und
+idempotente Operationen umgesetzt werden. Eine Zeitangabe allein ist kein
+ausreichender Replay-Schutz.
+
+5. FEHLERBEHANDLUNG
+- Keine Nutzdaten nach fehlgeschlagener Integritaetspruefung verarbeiten.
+- Fehler nach aussen moeglichst knapp melden, intern aber sicher protokollieren.
+- Keine Schluessel, Tokens, Passwoerter oder Klartext-Payloads loggen.
+- Wiederholte Fehler begrenzen, um Log-Fluten zu verhindern.
+
+6. KOMPATIBILITAET
+Vor Einfuehrung muessen Client- und Server-Versionen, Zertifikatsverwaltung,
+Lastverhalten, MTU/Fragmentierung und Wiederverbindungslogik getestet werden.

@@ -1,0 +1,37 @@
+CHOCO SHIELD - BETRIEB UND NOTFALLPLAN
+
+TAEGLICH
+- Sicherheitswarnungen pruefen.
+- Ungewoehnliche Anmeldungen und unbekannte Programme untersuchen.
+- Kritische Warnungen nicht ignorieren.
+
+REGELMAESSIG
+- Betriebssystem, Browser und Anwendungen aktualisieren.
+- Virenschutzstatus und Firewall pruefen.
+- Backups erstellen und Wiederherstellung stichprobenartig testen.
+- Nicht mehr benoetigte Konten und Programme entfernen.
+- Sicherheitssoftware und Update-Signaturen pruefen.
+
+BEI VERDACHT AUF KOMPROMITTIERUNG
+1. Bei aktivem Vorfall das betroffene Geraet vom Netzwerk trennen.
+2. Keine verdaechtigen Dateien starten und keine Beweise loeschen.
+3. Von einem anderen, sauberen Geraet wichtige Passwoerter aendern
+   und aktive Sitzungen widerrufen.
+4. Sicherheitspruefung mit vertrauenswuerdiger Software durchfuehren.
+5. Bei Geschaeftsgeraeten IT-Sicherheitsverantwortliche informieren.
+6. Bei Ransomware keine Loesegeldzahlung als Standardloesung betrachten.
+7. Nur aus nachweislich sauberen Backups wiederherstellen.
+8. Ursache feststellen und Schutzmassnahmen verbessern.
+
+DATENSCHUTZ
+- Nur notwendige Sicherheitsereignisse speichern.
+- Aufbewahrungsfristen festlegen.
+- Zugriff auf Logs beschraenken.
+- Keine Inhalte privater Kommunikation sammeln.
+- Nutzer transparent ueber Monitoring informieren.
+
+HAFTUNG UND REIFEGRAD
+Dieses Dokument beschreibt einen Entwicklungsentwurf. Vor produktivem Einsatz
+sind Implementierung, Code, Abhaengigkeiten und Konfiguration unabhaengig zu
+pruefen. Es ist keine Garantie gegen Hackerangriffe und kein Ersatz fuer
+professionelle Sicherheitsberatung.

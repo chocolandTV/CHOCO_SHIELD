@@ -1,0 +1,48 @@
+CHOCO SHIELD - BEDROHUNGSMODELL
+
+1. ZU SCHUETZENDE WERTE
+- Zugangsdaten und Sitzungstokens
+- Persoenliche und geschaeftliche Dateien
+- Betriebssystem und installierte Anwendungen
+- Netzwerkverbindungen
+- Backups und Wiederherstellungsinformationen
+- Integritaet der Sicherheitssoftware
+
+2. ANGRIFFSFLAECHEN
+- Phishing und Social Engineering
+- Schadsoftware und manipulierte Downloads
+- Veraltete oder falsch konfigurierte Software
+- Gestohlene Zugangsdaten
+- Unsichere WLAN- und Netzwerkverbindungen
+- Offene oder unnoetige Netzwerkdienste
+- Lieferketten- und Update-Angriffe
+- Physischer Zugriff auf das Geraet
+
+3. GEGENMASSNAHMEN
+Phishing:
+   MFA, Passwortmanager, Schulung, Mail-/Browser-Schutz.
+Schadsoftware:
+   Aktueller Endpoint-Schutz, eingeschraenkte Rechte, Anwendungskontrolle.
+Netzwerkangriffe:
+   TLS 1.3/QUIC, Firewall, sichere WLAN-Konfiguration, minimale Dienste.
+Gestohlene Zugangsdaten:
+   MFA, einzigartige Passwoerter, Sitzungswiderruf, Anmeldewarnungen.
+Datenverlust:
+   Versionierte, offline oder immutable Backups und Wiederherstellungstests.
+Schwachstellen:
+   Inventarisierung, zeitnahe Updates, regelmaessige Schwachstellenscans.
+Manipulation des Agents:
+   Signierte Updates, minimale Rechte, Integritaetspruefung, Audit-Logs.
+
+4. RISIKOBEWERTUNG
+Kritisch: aktive Kompromittierung, Verschluesselung wichtiger Daten,
+           deaktivierter Schutz mit konkretem Angriffshinweis.
+Hoch:     veraltete kritische Komponente, unbekannter Autostart,
+           wiederholte fehlgeschlagene Anmeldungen.
+Mittel:   ungewoehnliche, aber nicht bestaetigte Aktivitaet.
+Niedrig:  reine Konfigurationsverbesserung.
+
+5. MISSBRAUCHSSCHUTZ
+CHOCO SHIELD ist ausschliesslich fuer Geraete und Netzwerke bestimmt, fuer die
+der Betreiber berechtigt ist. Keine Funktionen zum Ausspaehen, Umgehen von
+Zugriffskontrollen, heimlichen Fernzugriff oder Angriff auf Dritte.

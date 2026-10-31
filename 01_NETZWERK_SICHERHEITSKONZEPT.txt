@@ -1,0 +1,63 @@
+Choco Shield PACKET GUARD
+Sicherheitskonzept fuer Datenpakete im Internet
+
+1. ZWECK
+Daten sollen auf dem Transportweg vertraulich, unveraendert und einer authentisierten
+Gegenstelle zuordenbar bleiben. Das Konzept soll ausserdem Wiederholungsangriffe
+(Replay) erkennen und unsichere Verbindungen ablehnen.
+
+2. WICHTIGE ARCHITEKTURREGEL
+Choco Shield erfindet keinen eigenen Verschluesselungsalgorithmus. Es definiert ein
+Sicherheitsprofil, das auf etablierten Standards aufsetzt:
+- TLS 1.3 fuer verbindungsorientierte Kommunikation.
+- QUIC mit TLS 1.3 fuer geeignete UDP-basierte Transporte.
+- AEAD-Verschluesselung, wie sie von standardkonformen TLS-Implementierungen
+  bereitgestellt wird.
+- Zertifikatspruefung und/oder gegenseitige TLS-Authentisierung, wenn passend.
+- Sichere Zufallszahlen und Schluesselverwaltung durch gepruefte Bibliotheken.
+
+3. SCHUTZZIELE
+Vertraulichkeit: Unbefugte sollen den Inhalt nicht lesen koennen.
+Integritaet: Veraenderungen an geschuetzten Daten sollen erkannt werden.
+Authentizitaet: Die Gegenstelle muss geprueft werden.
+Replay-Schutz: Alte Nachrichten duerfen nicht unbemerkt erneut gueltig werden.
+Verfuegbarkeit: Ueberlastungs- und DoS-Risiken sollen begrenzt werden.
+Schluesseltrennung: Schluessel duerfen nicht fuer mehrere Zwecke wiederverwendet werden.
+
+4. LOGISCHER ABLAUF
+A. Verbindungsaufbau:
+   - Protokollversion und erlaubte Kryptografie aushandeln.
+   - Zertifikat bzw. Identitaet der Gegenstelle pruefen.
+   - Schluessel mit dem standardisierten Handshake ableiten.
+B. Datenuebertragung:
+   - Nutzdaten mit AEAD schuetzen.
+   - Sequenz-/Datensatznummern gemaess Transportstandard verwalten.
+   - Authentisierungsfehler fuehren zum Verwerfen der betroffenen Daten.
+C. Verbindungsende:
+   - Sitzungsschluessel verwerfen.
+   - Keine geheimen Schluessel in Logs schreiben.
+
+5. ZUSAETZLICHE Choco Shield-POLICY
+- Nur freigegebene Protokollversionen und sichere Cipher Suites.
+- Keine unsicheren Fallbacks auf veraltete Protokolle.
+- Kurze, angemessene Lebensdauer von Sitzungsschluesseln gemaess Standard.
+- Zertifikatsfehler nicht stillschweigend ignorieren.
+- Rate Limits und Groessenlimits gegen Ressourcenmissbrauch.
+- Monitoring von auffaelligen Verbindungsraten und wiederholten Fehlern.
+- Bei Diensten mit hohen Schutzanforderungen gegenseitige Authentisierung erwägen.
+
+6. METADATEN
+Verschluesselung verbirgt nicht automatisch alle Metadaten. IP-Adressen,
+Verbindungszeitpunkte, Datenmengen und Teile des Verbindungsaufbaus koennen
+weiterhin sichtbar sein. Das Design muss diese Grenzen dokumentieren.
+
+7. WAS DAS KONZEPT NICHT LOEST
+- Ein kompromittiertes Endgeraet kann Klartext vor der Verschluesselung auslesen. # das muss unbedingt noch angegangen werden
+- Ein kompromittierter Server kann Daten nach der Entschluesselung offenlegen.# das muss unbedingt noch angegangen werden
+- Verschluesselung verhindert nicht automatisch Phishing oder DoS. # das muss unbedingt noch angegangen werden
+- Fehlerhafte Zertifikats- und Schluesselverwaltung kann Schutzwirkung aufheben.# das muss unbedingt noch angegangen werden
+
+8. IMPLEMENTIERUNG
+TLS/QUIC nicht selbst implementieren. Ausschliesslich gepflegte, etablierte
+Bibliotheken und Betriebssystem-Komponenten verwenden. Vor Produktivbetrieb:
+Code-Review, Fuzzing, Interoperabilitaetstests und externe Sicherheitspruefung.

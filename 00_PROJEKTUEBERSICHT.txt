@@ -1,0 +1,33 @@
+Choco Shield
+Projekt: Mehrschichtige Sicherheit fuer Internet-Datenpakete und PCs
+Version: 1.0
+Stand: Oktober 2026
+
+ZIEL
+Choco Shield ist ein Sicherheitskonzept aus zwei zusammenarbeitenden Bausteinen:
+A) Choco Shield Packet Guard: Schutz von Datenpaketen waehrend der Uebertragung.
+B) Choco Shield PC Guard: Schutz eines Computers durch Praevention, Erkennung und Reaktion.
+
+WICHTIGE GRENZE
+Absolute Sicherheit gibt es nicht. Auch ein sehr gutes System kann durch unbekannte
+Schwachstellen, kompromittierte Zugangsdaten, Fehlkonfigurationen oder menschliche
+Fehler angegriffen werden. Ziel ist deshalb, Angriffe zu verhindern, frueh zu erkennen,
+ihre Auswirkungen zu begrenzen und eine Wiederherstellung zu ermoeglichen.
+
+GRUNDPRINZIPIEN
+- Bewaehrte, gepruefte Kryptografie statt selbst erfundener Verschluesselung.
+- Mehrere unabhaengige Schutzschichten (Defense in Depth).
+- Standardmaessig minimale Rechte (Least Privilege).
+- Sichere Voreinstellungen und automatische Sicherheitsupdates.
+- Protokollierung mit Datenschutz und begrenzter Aufbewahrung.
+- Nachvollziehbare Warnungen und kontrollierte Reaktionen.
+- Regelmaessige unabhaengige Sicherheitspruefungen.
+
+PROJEKTERGEBNISSE
+1. Sicherheitsarchitektur fuer Datenpakete.
+2. Spezifikation fuer ein Paket-Sicherheitsprofil.
+3. Konzept fuer einen lokalen PC-Sicherheitsagenten.
+4. Bedrohungsmodell und Gegenmassnahmen.
+5. Test- und Einfuehrungsplan.
+6. Offene Punkte fuer einen spaeteren, plattformspezifischen Prototyp.
+

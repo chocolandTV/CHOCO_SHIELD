@@ -1,0 +1,44 @@
+CHOCO SHIELD - TESTPLAN UND ENTWICKLUNGSROADMAP
+
+PHASE 1: ANFORDERUNGEN
+- Zielbetriebssystem festlegen (Windows, macOS oder Linux). ## sehr warscheinlich Linux
+- Schutzbedarf und Nutzergruppen definieren.
+- Datenschutz- und Protokollierungsregeln festlegen.
+- Bedrohungsmodell durch IT-Sicherheit pruefen lassen.
+
+PHASE 2: NETZWERK-PROTOTYP
+- TLS 1.3/QUIC mit etablierter Bibliothek integrieren.
+- Zertifikatsvalidierung und Fehlerbehandlung testen.
+- Keine eigene Kryptografie implementieren.
+- Interoperabilitaet und Last testen.
+
+PHASE 3: PC-GUARD-PROTOTYP
+- Nur dokumentierte Betriebssystem-APIs nutzen.
+- Zunaechst lesende Statuspruefung und Warnmeldungen umsetzen.
+- Ereignisquellen und Berechtigungen dokumentieren.
+- Keine automatische Loeschung oder riskante Systemaenderung im MVP.
+
+PHASE 4: SICHERHEITSTESTS
+- Unit- und Integrationstests.
+- Fuzzing fuer Parser und Eingabeschnittstellen.
+- Tests fuer Zertifikatsfehler, Replay-Szenarien und Verbindungsabbrueche.
+- Tests fuer Fehlalarme und Ressourcenverbrauch.
+- Penetrationstest durch autorisierte Fachleute.
+- Datenschutzpruefung der Logs.
+
+PHASE 5: PILOTBETRIEB
+- Zunaechst auf Testgeraeten einsetzen.
+- Warnungen beobachten und Fehlalarme reduzieren.
+- Rollback- und Wiederherstellungsprozess testen.
+- Erst danach kontrollierte Verteilung.
+
+ABNAHMEKRITERIEN
+- Keine selbst entwickelte Kryptografie.
+- Fehlerhafte Zertifikate werden abgelehnt.
+- Authentisierungsfehler fuehren zum Verwerfen der Daten.
+- Logs enthalten keine Passwoerter, Tokens oder privaten Schluessel.
+- Agent laeuft mit minimal erforderlichen Rechten.
+- Updates sind signiert und verifizierbar.
+- Backups und Wiederherstellung wurden praktisch getestet.
+- Bekannte Grenzen und Restrisiken sind dokumentiert.
+
